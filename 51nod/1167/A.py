@@ -6,17 +6,24 @@
 ########################################################################
  
 """
-File: J.py
+File: A.py
 Author: AngelClover(AngelClover@aliyun.com)
-Date: 2016/02/21 15:09:27
+Date: 2016/02/19 12:13:46
 """
+#!/usr/bin/python
+#coding=utf-8
+k = int(raw_input())
 n = int(raw_input())
-str = raw_input().split()
-dic = [(x^((x<<1)&0xff)) for x in range(256) ]
-dd = [ 0 for x in range(256)]
-for i in range(256):
-    dd[dic[i]] = i
-res = ""
-for i in str:
-    res += ("%d " % dd[int(i)])
-print res
+
+print k,n
+def f(n):
+    if n < k:
+        return 1
+    s = n % k
+    if s != 0:
+        n -= s
+    return f(n - k) + f(n / k)
+print f(n)
+
+
+
